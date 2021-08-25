@@ -32,7 +32,7 @@ public class AuthorizationTest {
         dashboardPage.validFields();
     }
 
-   /* @Test
+    @Test
     void shouldWarnIfAuthWithInvalidLogin() {
         val loginPage = new LoginPage();
         val invalidAuthInfo = DataHelper.getInvalidAuthInfo();
@@ -46,5 +46,5 @@ public class AuthorizationTest {
         val verificationPage = loginPage.validLogin(authInfo);
         val invalidVerificationCode = DataHelper.getInvalidVerificationCode();
         verificationPage.invalidVerify(invalidVerificationCode);
-    }*/
+    }
 }

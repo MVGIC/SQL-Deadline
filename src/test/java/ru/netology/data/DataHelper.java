@@ -19,16 +19,16 @@ public class DataHelper {
         return new AuthInfo("vasya", "qwerty123");
     }
 
-   /* public static AuthInfo getInvalidAuthInfo() {
+    public static AuthInfo getInvalidAuthInfo() {
         return new AuthInfo(faker.name().username(), faker.internet().password());
-    }*/
+    }
 
     @Value
     public static class VerificationCode {
         String code;
     }
 
-/*    public static String getInvalidVerificationCode() {
+    public static String getInvalidVerificationCode() {
         return String.valueOf(faker.random().nextLong());
-    }*/
+    }
 }
