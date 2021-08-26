@@ -47,4 +47,15 @@ public class AuthorizationTest {
         val invalidVerificationCode = DataHelper.getInvalidVerificationCode();
         verificationPage.invalidVerify(invalidVerificationCode);
     }
+
+    @Test
+    void shouldBlockAfterThreeTimesInvalidPass() {
+        val loginPage = new LoginPage();
+        val invalidPassword = DataHelper.getInvalidPassword();
+        loginPage.setInvalidPassword(invalidPassword);
+        loginPage.clearFields();
+        loginPage.setInvalidPassword(invalidPassword);
+        loginPage.clearFields();
+        loginPage.setInvalidPassword(invalidPassword);
+    }
 }

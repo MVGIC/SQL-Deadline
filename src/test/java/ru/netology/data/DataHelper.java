@@ -23,6 +23,10 @@ public class DataHelper {
         return new AuthInfo(faker.name().username(), faker.internet().password());
     }
 
+    public static AuthInfo getInvalidPassword(){
+        return new AuthInfo("vasya",faker.internet().password());
+    }
+
     @Value
     public static class VerificationCode {
         String code;
