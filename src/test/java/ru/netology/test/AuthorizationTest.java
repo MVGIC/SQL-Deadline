@@ -57,5 +57,7 @@ public class AuthorizationTest {
         loginPage.setInvalidPassword(invalidPassword);
         loginPage.clearFields();
         loginPage.setInvalidPassword(invalidPassword);
+        loginPage.errorAuth();
+        loginPage.loginButtonShouldBeDisabled();
     }
 }

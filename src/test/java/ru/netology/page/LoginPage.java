@@ -4,8 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import ru.netology.data.DataHelper;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -13,6 +12,7 @@ public class LoginPage {
     private SelenideElement passwordField = $("[data-test-id=password] input");
     private SelenideElement loginButton = $("[data-test-id=action-login]");
     private SelenideElement errorNotification = $("[data-test-id=error-notification] .notification__content");
+    private SelenideElement errorAuth = $("[data-test-id=error-block]");
 
     public VerificationPage validLogin(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
@@ -38,5 +38,14 @@ public class LoginPage {
     public void clearFields() {
         loginField.doubleClick().sendKeys(Keys.BACK_SPACE);
         passwordField.doubleClick().sendKeys(Keys.BACK_SPACE);
+    }
+
+    public void errorAuth(){
+        errorAuth.shouldBe(visible)
+                .shouldHave(text("Ошибка! Превышено количество попыток входа. Пользователь заблокирован"));
+    }
+
+    public void loginButtonShouldBeDisabled(){
+        loginButton.shouldBe(disabled);
     }
 }
